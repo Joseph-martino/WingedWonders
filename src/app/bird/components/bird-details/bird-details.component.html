@@ -1,39 +1,44 @@
-<div *ngIf="bird" class="bird-card-container">
-    <h1>{{ bird.name | uppercase}}</h1>
-    <div class="content-container">
-        <div class="picture-container">
-            <img class="bird-picture" [src]="'assets/images/' + bird.picture"  alt="">
+<div *ngIf="bird" class="row">
+    <div class="col s12 m8 offset-m2">
+    <h2 class="header center">{{ bird.name }}</h2>
+    <div class="card horizontal hoverable">
+        <div class="card-image">
+        <img [src]="'assets/images/' +bird.picture">
         </div>
-        <div class="bird-details-container">
-            <div class="row grey">
-                <p>Nom</p>
-                <p>{{ bird.name }}</p>
-            </div>
-            <div class="row">
-                <p>Description</p>
-                <p>{{ bird.description }}</p>
-            </div>
-            <div class="row grey">
-                <p>Localisation</p>
-                <span *ngFor="let location of bird.locations">
-                    {{location }}
-                </span>
-            </div>
-            <div class="row">
-                <p>Date de création</p>
-                <p>{{ bird.created | date: "dd/MM/yyyy" }}</p>
-            </div>
-            <div class="buttons-container">
-                <a class="button" (click)="onGoToBirdsList()">Retour</a>
-                <a class="button" (click)="onEdit()">Editer</a>
-                <a class="button" (click)="onDelete(bird)">Supprimer</a>
-                
-            </div>
+        <div class="card-stacked">
+        <div class="card-content">
+            <table class="bordered striped">
+            <tbody>
+                <tr>
+                <td>Nom</td>
+                <td><strong>{{ bird.name }}</strong></td>
+                </tr>
+                <tr>
+                <td>Description</td>
+                <td><strong>{{ bird.description }}</strong></td>
+                </tr>
+                <tr>
+                <td>Localisations</td>
+                <td>
+                  <span *ngFor="let location of bird.locations" class="{{ location | continentPipeColour }}">{{ location }}</span>
+                </td>
+                </tr>
+                <tr>
+                <td>Date de création</td>
+                <td><em>{{ bird.created | date:"dd/MM/yyyy" }}</em></td>
+                </tr>
+            </tbody>
+            </table>
         </div>
-    </div> 
+        <div class="card-action">
+            <a (click)="onGoToBirdsList()">Retour</a>
+            <a (click)="onEdit()">Éditer</a>
+            <a (click)="onDelete(bird)">Supprimer</a>
+        </div>
+        </div>
+    </div>
+    </div>
 </div>
-
-<div *ngIf="!bird" class="center">
+<h4 *ngIf='!bird' class="center">
     <app-loader></app-loader>
-</div>
-
+</h4>

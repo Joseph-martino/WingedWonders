@@ -1,4 +1,4 @@
-<div class="product-card" (click)="onContinue(bird.id)" birdBorderCard>
+<!-- <div class="product-card" (click)="onContinue(bird.id)" birdBorderCard>
     <div class="picture-container">
         <img class="bird-picture" [src]="'assets/images/' + bird.picture" alt="">
     </div>
@@ -11,4 +11,27 @@
             </div>
         </div>
     </div>
+</div> -->
+
+<!---->
+
+<div class="container">
+    <div (click)="onContinue(bird.id)" class="card horizontal" birdBorderCard>
+        <div class="card-image">
+            <img [src]="'assets/images/' + bird.picture" />
+        </div>
+        <div class="card-stacked">
+            <div class="card-content">
+                <p>{{ bird.name }}</p>
+                <p><small>{{ bird.created | date: 'dd/MM/yyyy' }}</small></p>
+                <span 
+                    *ngFor="let location of bird.locations" 
+                    class="{{ location | continentPipeColour }}"
+                >
+                    {{ location }}
+                </span>
+            </div>
+        </div>
+    </div>
 </div>
+
