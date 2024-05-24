@@ -1,0 +1,14 @@
+<div class="product-card" (click)="onContinue(bird.id)" birdBorderCard>
+    <div class="picture-container">
+        <img class="bird-picture" [src]="'assets/images/' + bird.picture" alt="">
+    </div>
+    <div class="card-text-container">
+        <h2>{{ bird.name | uppercase}}</h2>
+        <p>{{ bird.created | date: "dd/MM/yyyy"}}</p>
+        <div class="locations-container">
+            <div *ngFor="let location of bird.locations" [style.backgroundColor]="location | continentPipeColour" class="location-text-container">
+                <span>{{ location }}</span>
+            </div>
+        </div>
+    </div>
+</div>

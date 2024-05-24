@@ -1,0 +1,15 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.add-button {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 20px;
+    background-color: #FE8181;
+    border-radius: 50%;
+}

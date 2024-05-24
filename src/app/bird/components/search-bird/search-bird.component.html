@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col s12 m6 offset-m3">
+        <div class="card">
+            <div class="card-content">
+                <div class="input-field">
+                    <input 
+                    #searchBox 
+                    (keyup)="search(searchBox.value)"
+                    placeholder="Entrer le nom d'un oiseau"
+                    >
+                    <div class="collection">
+                        <a *ngFor="let bird of birds$ |async"
+                        (click)="goToBird(bird)"
+                        class="collection-item">
+                    {{ bird.name }}</a>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+
+    </div>
+</div>

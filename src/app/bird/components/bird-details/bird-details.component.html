@@ -1,0 +1,39 @@
+<div *ngIf="bird" class="bird-card-container">
+    <h1>{{ bird.name | uppercase}}</h1>
+    <div class="content-container">
+        <div class="picture-container">
+            <img class="bird-picture" [src]="'assets/images/' + bird.picture"  alt="">
+        </div>
+        <div class="bird-details-container">
+            <div class="row grey">
+                <p>Nom</p>
+                <p>{{ bird.name }}</p>
+            </div>
+            <div class="row">
+                <p>Description</p>
+                <p>{{ bird.description }}</p>
+            </div>
+            <div class="row grey">
+                <p>Localisation</p>
+                <span *ngFor="let location of bird.locations">
+                    {{location }}
+                </span>
+            </div>
+            <div class="row">
+                <p>Date de création</p>
+                <p>{{ bird.created | date: "dd/MM/yyyy" }}</p>
+            </div>
+            <div class="buttons-container">
+                <a class="button" (click)="onGoToBirdsList()">Retour</a>
+                <a class="button" (click)="onEdit()">Editer</a>
+                <a class="button" (click)="onDelete(bird)">Supprimer</a>
+                
+            </div>
+        </div>
+    </div> 
+</div>
+
+<div *ngIf="!bird" class="center">
+    <app-loader></app-loader>
+</div>
+

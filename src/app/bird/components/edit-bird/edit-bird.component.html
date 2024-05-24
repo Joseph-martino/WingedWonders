@@ -1,0 +1,5 @@
+<div *ngIf="bird" class="bird-card-ccontainer">
+    <h1>Editer {{ bird.name }}</h1>
+    <img class="bird-picture" [src]="'assets/images/'+bird.picture" alt="">
+    <app-bird-form *ngIf="bird" [bird]="bird"></app-bird-form>
+</div>
